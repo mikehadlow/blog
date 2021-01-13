@@ -1,0 +1,4 @@
+baseURL = "http://blog.mikehadlow.com/"
+languageCode = "en-us"
+title = "Mike Hadlow's Blog"
+theme = "mhblog"
