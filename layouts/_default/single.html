@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{{ .Site.Title }}</title>
-    </head>
-    <body>
-        <h1>{{ .Page.Title }}</h1>
-        <p>Single Page Template.</p>
-    </body>
-</html>
+{{ define "content" }}
+            <h1 class="title">{{ .Page.Title }}</h1>
+            <div>
+                <article id="content">
+                    {{ .Content }}
+                </article>
+            </div>
+{{ end }}
