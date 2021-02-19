@@ -1,7 +1,3 @@
 ---
-title: The Homepage
+title: Mike Hadlow
 ---
-
-# The Homepage
-
-Here is some homepage content!
