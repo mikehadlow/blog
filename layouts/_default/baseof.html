@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <title>{{ .Site.Title }}</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     </head>
-    <body class="has-navbar-fixed-top">
-        <nav class="navbar is-fixed-top has-shadow is-dark">
-            <div class="container">
-                <a href="/" class="navbar-item has-text-white">
-                    <strong>{{ .Site.Title }}</strong>
-                </a>
-                {{ range where .Site.RegularPages "Section" "top" }}
-                <a href="{{ .Permalink }}" class="navbar-item has-text-white">{{ .Title }}</a>
-                {{ end}}
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a href="/" class="navbar-brand">{{ .Site.Title }}</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        {{ range where .Site.RegularPages "Section" "top" }}
+                        <li class="nav-item">
+                            <a href="{{ .Permalink }}" class="nav-link">{{ .Title }}</a>
+                        </li>
+                        {{ end}}
+                    </ul>
+                </div>
+
             </div>
         </nav>
         <section class="section">
