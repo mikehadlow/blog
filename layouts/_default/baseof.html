@@ -6,15 +6,26 @@
         <title>{{ .Site.Title }}</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     </head>
-    <body class="has-navbar-fixed-top">
-        <nav class="navbar is-fixed-top has-shadow is-dark">
+    <body>
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
             <div class="container">
-                <a href="/" class="navbar-item has-text-white">
-                    <strong>{{ .Site.Title }}</strong>
-                </a>
-                {{ range where .Site.RegularPages "Section" "top" }}
-                <a href="{{ .Permalink }}" class="navbar-item has-text-white">{{ .Title }}</a>
-                {{ end}}
+                <div class="navbar-brand">
+                    <a href="/" class="navbar-item">
+                        <strong>{{ .Site.Title }}</strong>
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        {{ range where .Site.RegularPages "Section" "top" }}
+                        <a href="{{ .Permalink }}" class="navbar-item">{{ .Title }}</a>
+                        {{ end}}
+                    </div>
+                </div>
             </div>
         </nav>
         <section class="section">
@@ -23,4 +34,32 @@
             </div>
         </section>
     </body>
+    <script>
+    // enables the nav bar burger menu on touch devices
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+    });
+    </script>
 </html>
