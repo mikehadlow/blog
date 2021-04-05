@@ -2,10 +2,7 @@
                 <h1 class="title">{{ .Page.Title }}</h1>
                 <h2 class="subtitle">C# .NET Developer</h2>
                 <div class="block">
-                    <p class="tag is-info">This is the index.html homepage template.</p>
-                </div>
-                <div class="block">
-                    <p>Here is a list of blog posts:</p>
+                    <p>Recent blog posts</p>
                 </div>
                 <ul>
                     {{ range where .Site.RegularPages "Section" "posts" }}

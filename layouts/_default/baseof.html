@@ -13,13 +13,13 @@
                     <a href="/" class="navbar-item">
                         <strong>{{ .Site.Title }}</strong>
                     </a>
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="menu">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-                <div class="navbar-menu">
+                <div id="menu" class="navbar-menu">
                     <div class="navbar-start">
                         {{ range where .Site.RegularPages "Section" "top" }}
                         <a href="{{ .Permalink }}" class="navbar-item">{{ .Title }}</a>
@@ -30,7 +30,16 @@
         </nav>
         <section class="section">
             <div class="container">
-            {{ block "content" . }} {{ end }}
+                <div class="columns">
+                    <div class="column is-two-thirds">
+                    {{ block "content" . }} {{ end }}
+                    </div>
+                    <div class="column is-one-third box">
+                        <div class="content">
+                        {{ partial "sidebar.md" . | markdownify }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </body>
